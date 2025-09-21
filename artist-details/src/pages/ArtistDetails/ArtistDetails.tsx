@@ -1,14 +1,16 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { Card, CardBody, CardHeader } from "@heroui/card";
 import { Image } from "@heroui/image";
-import { useEffect, useState } from "react";
+import { useEffect, useState, Fragment } from "react";
 import { ScrollShadow } from "@heroui/scroll-shadow";
 import { Spinner } from "@heroui/spinner";
 import { Button } from "@heroui/button";
+import { Link } from "@heroui/link";
 
 import { Title } from "./components/Title.tsx";
 import { TopList } from "./components/TopList.tsx";
 import { getArtistImage } from "./helpers/getArtistImage.ts";
+import { splitByFirstAnchorTag } from "./helpers/splitByFirstAnchorTag.ts";
 
 import { useGetArtistQuery } from "@/store/services/artist";
 
@@ -48,7 +50,6 @@ export const ArtistDetails = () => {
         <Card className="w-[300px] h-max">
           <CardHeader className="pb-0 pt-2 px-4 flex-col items-start gap-2 mb-4">
             <Title size="base">{data?.artist?.name}</Title>
-
             <p className="text-tiny font-bold">
               Playcount: {data?.artist?.stats.playcount}
             </p>
@@ -76,11 +77,35 @@ export const ArtistDetails = () => {
             </Button>
           </div>
           <ScrollShadow className="h-[340px] text-justify p-4">
-            {data?.artist?.bio?.content.split("\n").map((paragraph, index) => (
-              <p key={index} className="indent-8">
-                {paragraph}
-              </p>
-            ))}
+            {data?.artist?.bio?.content.split("\n").map((paragraph, index) => {
+              const paragraphWithTag = splitByFirstAnchorTag(paragraph);
+
+              return paragraphWithTag?.filter(Boolean)?.length ? (
+                <Fragment key={index}>
+                  {paragraphWithTag[0] && (
+                    <p className="indent-8">{paragraphWithTag[0]}</p>
+                  )}
+                  {paragraphWithTag[1] && (
+                    <Link
+                      isExternal
+                      className="indent-8"
+                      href={data?.artist?.url}
+                    >
+                      Read more on Last.fm
+                    </Link>
+                  )}
+                  {paragraphWithTag[2] && (
+                    <p className="indent-8">
+                      {paragraphWithTag[2].slice(1).trim()}
+                    </p>
+                  )}
+                </Fragment>
+              ) : (
+                <p key={index} className="indent-8">
+                  {paragraph}
+                </p>
+              );
+            })}
           </ScrollShadow>
           <div className="flex gap-6">
             {data?.artist?.mbid && (

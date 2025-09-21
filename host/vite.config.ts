@@ -19,6 +19,7 @@ export default defineConfig(({ mode }) => {
           topArtists: `${env.VITE_TOP_ARTISTS_MICROSERVICE_BUILD_URL}`,
           topTracks: `${env.VITE_TOP_TRACKS_MICROSERVICE_BUILD_URL}`,
           artistDetails: `${env.VITE_ARTIST_DETAILS_MICROSERVICE_BUILD_URL}`,
+          home: `${env.VITE_HOME_MICROSERVICE_BUILD_URL}`,
         },
         shared: [
           "react",

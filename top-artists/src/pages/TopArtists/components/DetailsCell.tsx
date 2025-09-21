@@ -11,7 +11,7 @@ interface IDetailsCellProps {
 
 export const DetailsCell: FC<IDetailsCellProps> = ({ name }) => {
   const link = generatePath(appRoutes.topArtists.details, {
-    name,
+    name: encodeURIComponent(name),
   });
 
   return (

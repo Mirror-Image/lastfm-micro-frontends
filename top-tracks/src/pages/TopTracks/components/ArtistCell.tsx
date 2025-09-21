@@ -11,7 +11,9 @@ interface IArtistCellProps {
 
 export const ArtistCell: FC<IArtistCellProps> = ({ artist }) => (
   <Link
-    href={generatePath(appRoutes.topArtists.details, { name: artist.name })}
+    href={generatePath(appRoutes.topArtists.details, {
+      name: encodeURIComponent(artist.name),
+    })}
   >
     {artist.name}
   </Link>

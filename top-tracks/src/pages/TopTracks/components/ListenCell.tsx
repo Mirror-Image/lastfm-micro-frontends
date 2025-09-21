@@ -8,7 +8,14 @@ interface IListenCellProps {
 
 const ListenCell: FC<IListenCellProps> = ({ url }) => {
   return (
-    <Button as={Link} color="primary" href={url} size="sm" variant="shadow">
+    <Button
+      isExternal
+      as={Link}
+      color="primary"
+      href={url}
+      size="sm"
+      variant="shadow"
+    >
       Listen
     </Button>
   );

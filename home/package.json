@@ -4,12 +4,13 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --port 3004 --strictPort",
     "build": "tsc && vite build",
-    "lint": "eslint --fix",
-    "preview": "vite preview"
+    "preview": "vite preview --port 3004 --strictPort",
+    "lint": "eslint --fix"
   },
   "dependencies": {
+    "@heroui/autocomplete": "^2.3.28",
     "@heroui/button": "2.2.26",
     "@heroui/code": "2.2.20",
     "@heroui/dropdown": "2.3.26",
@@ -23,9 +24,11 @@
     "@heroui/theme": "2.4.22",
     "@heroui/use-theme": "2.1.10",
     "@react-aria/visually-hidden": "3.8.27",
+    "@react-stately/data": "^3.14.0",
     "@react-types/shared": "3.32.0",
     "@tailwindcss/postcss": "4.1.11",
     "@tailwindcss/vite": "4.1.11",
+    "axios": "^1.12.2",
     "clsx": "2.1.1",
     "framer-motion": "11.18.2",
     "react": "18.3.1",
@@ -38,6 +41,8 @@
     "@eslint/compat": "1.2.8",
     "@eslint/eslintrc": "3.3.1",
     "@eslint/js": "9.25.1",
+    "@originjs/vite-plugin-federation": "^1.4.1",
+    "@reduxjs/toolkit": "^2.9.0",
     "@types/node": "20.5.7",
     "@types/react": "18.3.3",
     "@types/react-dom": "18.3.0",
@@ -56,8 +61,9 @@
     "globals": "16.0.0",
     "postcss": "8.5.6",
     "prettier": "3.5.3",
+    "react-redux": "^9.2.0",
     "typescript": "5.6.3",
-    "vite": "6.0.11",
+    "vite": "6.3.6",
     "vite-tsconfig-paths": "5.1.4"
   }
 }
