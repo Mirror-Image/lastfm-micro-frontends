@@ -4,10 +4,10 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --port 3000 --strictPort",
     "build": "tsc && vite build",
-    "lint": "eslint --fix",
-    "preview": "vite preview"
+    "preview": "vite preview --port 3000 --strictPort",
+    "lint": "eslint --fix"
   },
   "dependencies": {
     "@heroui/button": "2.2.26",
