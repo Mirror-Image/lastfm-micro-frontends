@@ -16,13 +16,7 @@ export default defineConfig({
       exposes: {
         "./Home": "./src/App",
       },
-      shared: [
-        "react",
-        "react-dom",
-        "react-redux",
-        "@reduxjs/toolkit",
-        "react-router-dom",
-      ],
+      shared: ["react", "react-dom", "react-router-dom"],
     }),
   ],
   build: {

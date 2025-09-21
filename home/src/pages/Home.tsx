@@ -23,6 +23,7 @@ type TArtist = {
 
 export const Home = () => {
   const [selectedKey, setSelectedKey] = useState<Key | null>(null);
+  const [searchResult, setSearchResult] = useState<TArtist[]>([]);
 
   const list = useAsyncList<TArtist>({
     async load({ signal, filterText }) {
@@ -31,16 +32,24 @@ export const Home = () => {
         { signal },
       );
 
-      const data = await res.json();
+      const response = await res.json();
+      const data = response.results.artistmatches.artist;
+
+      setSearchResult(data);
 
       return {
-        items: data.results.artistmatches.artist,
+        items: data,
       };
     },
   });
 
   const onSelectionChange = (key: Key | null) => {
     setSelectedKey(key);
+  };
+
+  const onClear = () => {
+    setSearchResult([]);
+    list.setFilterText("");
   };
 
   return (
@@ -55,10 +64,12 @@ export const Home = () => {
             isClearable
             inputValue={list.filterText}
             isLoading={list.isLoading}
-            items={list.items}
+            items={searchResult}
+            menuTrigger="input"
             placeholder="Type to search..."
             size="lg"
             variant="flat"
+            onClear={onClear}
             onInputChange={list.setFilterText}
             onSelectionChange={onSelectionChange}
           >
