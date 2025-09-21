@@ -8,8 +8,6 @@ import DefaultLayout from "@/layouts/Default.tsx";
 const TopArtists = lazy(() => import("topArtists/TopArtists"));
 const TopTracks = lazy(() => import("topTracks/TopTracks"));
 
-console.log(TopArtists);
-
 function App() {
   return (
     <Routes>

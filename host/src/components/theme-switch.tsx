@@ -3,6 +3,7 @@ import { VisuallyHidden } from "@react-aria/visually-hidden";
 import { SwitchProps, useSwitch } from "@heroui/switch";
 import clsx from "clsx";
 import { useTheme } from "@heroui/use-theme";
+import { Tooltip } from "@heroui/tooltip";
 
 import { SunFilledIcon, MoonFilledIcon } from "@/components/icons";
 
@@ -71,11 +72,17 @@ export const ThemeSwitch: FC<ThemeSwitchProps> = ({
           ),
         })}
       >
-        {isSelected ? (
-          <MoonFilledIcon size={22} />
-        ) : (
-          <SunFilledIcon size={22} />
-        )}
+        <Tooltip
+          content={isSelected ? "Turn off the light" : "Turn on the light"}
+        >
+          <div>
+            {isSelected ? (
+              <MoonFilledIcon size={22} />
+            ) : (
+              <SunFilledIcon size={22} />
+            )}
+          </div>
+        </Tooltip>
       </div>
     </Component>
   );

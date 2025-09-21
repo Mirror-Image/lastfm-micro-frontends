@@ -14,7 +14,7 @@ export const topArtistsApi = createApi({
   endpoints: (builder) => ({
     getTopArtists: builder.query<TGetTopArtistsResponse, TGetTopArtistsRequest>(
       {
-        query: ({ page, limit = 20 }) => ({
+        query: ({ page, limit = 10 }) => ({
           url: `?method=chart.gettopartists&api_key=${ENV_LASTFM_API_KEY}&format=json`,
           params: {
             page,
