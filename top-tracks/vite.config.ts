@@ -16,7 +16,7 @@ export default defineConfig({
       exposes: {
         "./TopTracks": "./src/App",
       },
-      shared: ["react", "react-dom"],
+      shared: ["react", "react-dom", "react-redux", "@reduxjs/toolkit"],
     }),
   ],
   build: {
