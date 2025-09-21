@@ -11,8 +11,8 @@ export default defineConfig({
     tsconfigPaths(),
     tailwindcss(),
     federation({
-      name: "topTracks",
-      filename: "topTracks-build.js",
+      name: "top-tracks",
+      filename: "top-tracks-build.js",
       exposes: {
         "./TopTracks": "./src/App",
       },

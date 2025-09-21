@@ -18,6 +18,7 @@ export default defineConfig(({ mode }) => {
         remotes: {
           topArtists: `${env.VITE_TOP_ARTISTS_MICROSERVICE_BUILD_URL}`,
           topTracks: `${env.VITE_TOP_TRACKS_MICROSERVICE_BUILD_URL}`,
+          artistDetails: `${env.VITE_ARTIST_DETAILS_MICROSERVICE_BUILD_URL}`,
         },
         shared: ["react", "react-dom", "react-redux", "@reduxjs/toolkit"],
       }),

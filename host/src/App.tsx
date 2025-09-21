@@ -7,6 +7,7 @@ import DefaultLayout from "@/layouts/Default.tsx";
 
 const TopArtists = lazy(() => import("topArtists/TopArtists"));
 const TopTracks = lazy(() => import("topTracks/TopTracks"));
+const ArtistDetails = lazy(() => import("artistDetails/ArtistDetails"));
 
 function App() {
   return (
@@ -20,6 +21,14 @@ function App() {
             </Suspense>
           }
           path={appRoutes.topArtists.root}
+        />
+        <Route
+          element={
+            <Suspense fallback={<Spinner color="danger" />}>
+              <ArtistDetails />
+            </Suspense>
+          }
+          path={appRoutes.topArtists.details}
         />
         <Route
           element={

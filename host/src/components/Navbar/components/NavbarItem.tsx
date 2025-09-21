@@ -1,6 +1,6 @@
 import { NavbarItem as HeroUINavbarItem } from "@heroui/navbar";
 import { link as linkStyles } from "@heroui/theme";
-import { useLocation } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import { Link } from "@heroui/link";
 import clsx from "clsx";
 import { FC } from "react";
@@ -12,7 +12,9 @@ interface INavbarItemProps {
 
 export const NavbarItem: FC<INavbarItemProps> = ({ label, href }) => {
   const location = useLocation();
-  const isActive = location.pathname === href;
+  const isActive = location.pathname.includes(href);
+
+  const { name } = useParams<{ name: string }>();
 
   return (
     <HeroUINavbarItem key={href}>
@@ -25,7 +27,7 @@ export const NavbarItem: FC<INavbarItemProps> = ({ label, href }) => {
         data-active={isActive}
         href={href}
       >
-        {label}
+        {isActive ? [label, name].filter(Boolean).join(" / ") : label}
       </Link>
     </HeroUINavbarItem>
   );
