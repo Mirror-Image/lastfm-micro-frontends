@@ -4,10 +4,10 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --port 3002 --strictPort",
     "build": "tsc && vite build",
-    "lint": "eslint --fix",
-    "preview": "vite preview"
+    "preview": "vite preview --port 3002 --strictPort",
+    "lint": "eslint --fix"
   },
   "dependencies": {
     "@heroui/button": "2.2.26",
@@ -38,6 +38,7 @@
     "@eslint/compat": "1.2.8",
     "@eslint/eslintrc": "3.3.1",
     "@eslint/js": "9.25.1",
+    "@originjs/vite-plugin-federation": "^1.4.1",
     "@types/node": "20.5.7",
     "@types/react": "18.3.3",
     "@types/react-dom": "18.3.0",
@@ -57,7 +58,7 @@
     "postcss": "8.5.6",
     "prettier": "3.5.3",
     "typescript": "5.6.3",
-    "vite": "6.0.11",
+    "vite": "6.3.6",
     "vite-tsconfig-paths": "5.1.4"
   }
 }
