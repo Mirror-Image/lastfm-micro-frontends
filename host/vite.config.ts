@@ -20,7 +20,13 @@ export default defineConfig(({ mode }) => {
           topTracks: `${env.VITE_TOP_TRACKS_MICROSERVICE_BUILD_URL}`,
           artistDetails: `${env.VITE_ARTIST_DETAILS_MICROSERVICE_BUILD_URL}`,
         },
-        shared: ["react", "react-dom", "react-redux", "@reduxjs/toolkit"],
+        shared: [
+          "react",
+          "react-dom",
+          "react-redux",
+          "@reduxjs/toolkit",
+          "react-router-dom",
+        ],
       }),
     ],
     build: {

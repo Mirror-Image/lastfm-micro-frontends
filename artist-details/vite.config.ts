@@ -16,7 +16,13 @@ export default defineConfig({
       exposes: {
         "./ArtistDetails": "./src/App",
       },
-      shared: ["react", "react-dom", "react-redux", "@reduxjs/toolkit"],
+      shared: [
+        "react",
+        "react-dom",
+        "react-redux",
+        "@reduxjs/toolkit",
+        "react-router-dom",
+      ],
     }),
   ],
   build: {

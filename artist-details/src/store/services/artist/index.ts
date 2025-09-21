@@ -2,8 +2,15 @@ import { createApi } from "@reduxjs/toolkit/query/react";
 
 import { axiosBaseQuery } from "../axiosBaseQuery";
 
-import { ARTIST_TAG, LIST_ID } from "./constants.ts";
-import { TGetArtistResponse, TArtistRequest } from "./types.ts";
+import { ARTIST_TAG } from "./constants.ts";
+import {
+  TGetArtistResponse,
+  TArtistRequest,
+  TGetTopAlbumsRequest,
+  TGetTopTracksRequest,
+  TGetTopAlbumsResponse,
+  TGetTopTracksResponse,
+} from "./types.ts";
 
 import { ENV_LASTFM_API_KEY } from "@/constants/envs.ts";
 
@@ -19,18 +26,29 @@ export const artistsApi = createApi({
           artist,
         },
       }),
-      providesTags: (result) =>
-        result
-          ? [
-              ...(result?.artists?.artist.map(({ mbid }) => ({
-                type: ARTIST_TAG,
-                id: mbid,
-              })) ?? []),
-              { type: ARTIST_TAG, id: LIST_ID },
-            ]
-          : [{ type: ARTIST_TAG, id: LIST_ID }],
+    }),
+    getTopAlbums: builder.query<TGetTopAlbumsResponse, TGetTopAlbumsRequest>({
+      query: ({ mbid, artist }) => ({
+        url: `?method=artist.gettopalbums&format=json`,
+        params: {
+          ...(mbid ? { mbid } : { artist }),
+          api_key: ENV_LASTFM_API_KEY,
+          limit: 10,
+        },
+      }),
+    }),
+    getTopTracks: builder.query<TGetTopTracksResponse, TGetTopTracksRequest>({
+      query: ({ mbid, artist }) => ({
+        url: `?method=artist.gettoptracks&format=json`,
+        params: {
+          ...(mbid ? { mbid } : { artist }),
+          api_key: ENV_LASTFM_API_KEY,
+          limit: 10,
+        },
+      }),
     }),
   }),
 });
 
-export const { useGetArtistQuery } = artistsApi;
+export const { useGetArtistQuery, useGetTopAlbumsQuery, useGetTopTracksQuery } =
+  artistsApi;
