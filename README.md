@@ -5,10 +5,10 @@ This project showcases how micro frontends can be applied in a modern music appl
 ## Project Structure
 
 - **host**: Host application with header and footer. Displays menu and theme switcher.
-- **home**: Allow to search artists and see detailed information.
-- **top-tracks**: Displays a list of top tracks using the Last.fm API.
-- **top-artists**: Displays a list of top artists using the Last.fm API.
-- **artist-details**: Displays detailed information about a selected artist.
+- **home**: Remote application, allows to search artists and see detailed information.
+- **top-tracks**: Remote application, displays a list of top tracks using the Last.fm API.
+- **top-artists**: Remote application, displays a list of top artists using the Last.fm API.
+- **artist-details**: Remote application, displays detailed information about a selected artist.
 
 ## Features
 
@@ -24,8 +24,10 @@ This project showcases how micro frontends can be applied in a modern music appl
    ```bash
    git clone https://github.com/Mirror-Image/lastfm-micro-frontends.git
    ```
+   
+2. Get a Last.fm API key by creating an account on [Last.fm](https://www.last.fm/api/account/create) and replace `VITE_LASTFM_API_KEY` in the `.env` files of each remote application with your actual API key.
 
-2. Install dependencies, build and run the individual apps:
+3. Install dependencies, build and run the individual apps:
 - Host (host application)
   ```bash
   cd host
@@ -56,4 +58,4 @@ This project showcases how micro frontends can be applied in a modern music appl
    npm run build
    npm run preview
    ```
-3. Visit http://localhost:3000 to see the host application in action.
+4. Visit http://localhost:3000 to see the host application in action.
