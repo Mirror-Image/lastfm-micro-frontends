@@ -4,17 +4,17 @@ This project showcases how micro frontends can be applied in a modern music appl
 
 ## Project Structure
 
-- **host**: Host application with header and footer. Displays menu and theme switcher.
-- **home**: Remote application, allows to search artists and see detailed information.
-- **top-tracks**: Remote application, displays a list of top tracks using the Last.fm API.
-- **top-artists**: Remote application, displays a list of top artists using the Last.fm API.
-- **artist-details**: Remote application, displays detailed information about a selected artist.
+- **host**: host application with header and footer. Displays menu and theme switcher.
+- **home**: allows to search artists and see detailed information.
+- **top-tracks**: displays a list of top tracks.
+- **top-artists**: displays a list of top artists.
+- **artist-details**: displays detailed information about a selected artist.
 
 ## Features
 
 - Micro Frontend architecture with Module Federation, TypeScript and React
-- Integration with Last.fm API for artist data
-- TailwindCSS and NextUI for UI components
+- Integration with Last.fm API for artist and tracks data
+- TailwindCSS and HeroUI (Previously NextUI) for UI components
 - RTK-Query for state management and axios for data fetching
 
 ## Setup
