@@ -54,7 +54,7 @@ export const Home = () => {
 
   return (
     <div className="h-[calc(100vh-176px)] flex flex-col justify-center items-center gap-8 px-4 text-center">
-      <div className="flex flex-col justify-center items-center mb-50">
+      <div className="flex flex-col justify-center items-center mb-55">
         <h2 className="w-[75%] mb-8 text-[2.25rem] font-bold text-fuchsia-400 uppercase bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500 leading-tight">
           Discover your favorite artist and start listening now
         </h2>
